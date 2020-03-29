@@ -5,19 +5,35 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
+  data(){
+    return {
+      res:{}
+    }
+  },
+  mounted(){
+    //给默认值
+    this.axios.get('/api/products').then((res={})=>{
+      this.res = res;
+      console.log("res",this.res)
+    })
+  },
+  methods:{
+    getUser(){
+      // this.axios.get()
+      //保存到vuex里面
+    },
+    getCartCount(){
+
+    }
+  }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import './assets/resource/reset.scss';
+@import './assets/resource/config.scss';
+@import './assets/resource/button.scss';
+@import './assets/resource/base.scss';
 </style>
